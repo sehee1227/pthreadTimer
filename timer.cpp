@@ -58,7 +58,7 @@ bool TimerMgr::create(timer_t* timerId)
 {
     struct sigevent sigEvt;
 
-    sigEvt.sigev_notify    = SIGEV_SIGNAL;
+    sigEvt.sigev_notify   = SIGEV_SIGNAL;
     sigEvt.sigev_signo    = SIGALRM;
     sigEvt.sigev_value.sival_ptr = timerId;
 
@@ -74,8 +74,8 @@ bool TimerMgr::setup(timer_t timerId, unsigned int timeval, unsigned int interva
 {
     timer_info timeInfo;
 
-    timeInfo.timeValue  = (timeval);
-    timeInfo.itsVal = (interval);
+    timeInfo.timeValue  = timeval;
+    timeInfo.itsVal = interval;
     timeInfo.cb_func = callback_func;
     timeInfo.userData = data;
     timeInfo.activated = false;
